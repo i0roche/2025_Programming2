@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Java ジャーナルアプリ - 作品紹介</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+      body {
+        padding-top: 56px; /* 固定Navbarのための余白 */
+      }
+      .hero-section {
+        background-color: #f8f9fa; /* 薄いグレーの背景 */
+      }
+      .code-block {
+        background-color: #282c34; /* コードブロックの背景色 */
+        color: #abb2bf;           /* コードの文字色 */
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;         /* 横スクロール可能に */
+      }
+      .hover-header-text {
+        position: relative;
+      }
+      .hover-header-text:hover {
+        color: transparent;
+        user-select: none;
+      }
+      .hover-header-text:hover::after {
+        content: '課題で作成した、テキストとToDoを管理できるGUIアプリケーション(はりぼて)です。';
+        color: #4e555c;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+      }
+      .hover-sakuhin {
+        position: relative;
+        display: inline-block;
+      }
+      .hover-sakuhin:hover {
+        color: transparent;
+        user-select: none;
+      }
+      .hover-sakuhin:hover::after {
+        content: '作品(はりぼて)について';
+        position: absolute;
+        color: #000;
+        left: 0;
+        top: 0;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Java ジャーナルアプリ</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">概要</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">主な機能</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#code">ソースコード</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="py-5 hero-section">
+      <div class="container px-4 text-center">
+          <h1 class="fw-bolder">Java ジャーナルアプリ</h1>
+          <p class="lead text-muted">
+            <span class="hover-header-text">
+            課題で作成した、テキストとToDoを管理できるGUIアプリケーションです。
+            </span>
+          </p>
+      </div>
+    </header>
+
+    <main class="py-5" id="about">
+      <div class="container">
+        <h2 class="text-center mb-4">概要</h2>
+        
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <img src="img/java_app_sc.png" class="img-fluid rounded shadow-sm" alt="Javaジャーナルアプリ（GUI版）の実行画面">
+          </div>
+          
+          <div class="col-md-6">
+            <h3>
+              <span class="hover-sakuhin">
+                作品について
+              </span>
+            </h3>
+            <p>
+              このアプリケーションは、Javaのオブジェクト指向プログラミングの課題として作成しました。
+              テキストエントリとToDoエントリを共通の `JournalEntry` 抽象クラスから継承して管理する設計になっています。
+            </p>
+            <h3>使用技術・工夫した点</h3>
+            <ul>
+              <li><strong>Java Swing (GUI):</strong> CUI版のロジックを再利用し、`JFrame`や`JButton`等でGUIを構築。</li>
+              <li><strong>Look and Feel:</strong> `UIManager` を使用し、OS標準の見た目に変更。</li>
+              <li><strong>継承:</strong> `JournalEntry` を親クラスとし、`TextEntry` と `ToDoEntry` がそれを継承。</li>
+              <li><strong>データ保存:</strong> `Serializable` インターフェースを利用し、`ObjectOutputStream` でエントリのリスト全体をシリアライズ化してファイルに保存します。</li>
+              <li><strong>`transient` の使用:</strong> `Serializable` ではない `LocalDateTime` 型を `transient` とし、`writeObject`/`readObject` をカスタム実装して文字列として保存・復元しています。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <section class="py-5 bg-light" id="features">
+        <div class="container">
+            <h2 class="text-center mb-4">主な機能</h2>
+            <div class="row gy-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card p-3 h-100">
+                        <h5 class="card-title">テキストエントリ追加</h5>
+                        <p class="card-text">日付と共に、簡単なメモ（Text Entry）を保存できます。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card p-3 h-100">
+                        <h5 class="card-title">ToDoエントリ追加</h5>
+                        <p class="card-text">タスク（ToDo Entry）を登録できます。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card p-3 h-100">
+                        <h5 class="card-title">ToDoステータス管理</h5>
+                        <p class="card-text">Index番号を指定して、登録したToDoを「完了 (Completed)」状態に変更できます。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card p-3 h-100">
+                        <h5 class="card-title">データの永続化</h5>
+                        <p class="card-text">追加したエントリはファイルに保存され、アプリを再起動しても消えません。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="code">
+        <div class="container">
+            <h2 class="text-center mb-4">ソースコード</h2>
+            <p class="text-center text-muted">主要なファイル構成 (抜粋)</p>
+            
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="text-center mb-4">
+                        <a href="#" class="btn btn-lg btn-success">GitHubリポジトリでコードを見る</a>
+                    </div>
+
+                    <h5>JournalApp.java (ファイル保存部分)</h5>
+                    <pre class="code-block"><code>
+public void saveEntries() {
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
+          oos.writeObject(entries);
+          System.out.println("Journal entries saved to " + FILE_NAME);
+    } catch (IOException e) {
+          System.err.println("Failed to save journal entries: " + e.getMessage());
+    }
+}
+                    </code></pre>
+
+                    <h5 class="mt-4">JournalEntry.java (カスタムシリアライズ)</h5>
+                    <pre class="code-block"><code>
+protected transient LocalDateTime timestamp;
+
+private void writeObject(ObjectOutputStream out) throws IOException {
+    out.defaultWriteObject();
+    out.writeObject(timestamp.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+}
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 bg-dark text-white-50">
+      <div class="container text-center">
+        <small>Copyright &copy; 2025 r121324</small>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
