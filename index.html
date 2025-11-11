@@ -51,6 +51,9 @@
         top: 0;
         white-space: nowrap;
       }
+      #screenshotCarousel .carousel-inner .ratio img {
+        object-fit: cover;
+      }
     </style>
   </head>
   <body>
@@ -102,10 +105,14 @@
 
               <div class="carousel-inner rounded shadow-sm">
                 <div class="carousel-item active">
-                  <img src="img/java_app_sc.png" class="d-block w=100" alt="Javaジャーナルアプリの実行画面(Linux版)">
+                  <div class="ratio ratio-4x3">
+                    <img src="img/java_app_sc.png" class="d-block w=100" alt="Javaジャーナルアプリの実行画面(Linux版)">
+                  </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="img/java_app_windows.png" class="d-block w=100" alt="Javaジャーナルアプリの実行画面(Windows版)">
+                  <div class="ratio ratio-4x3">
+                    <img src="img/java_app_windows.png" class="d-block w=100" alt="Javaジャーナルアプリの実行画面(Windows版)">
+                  </div>
                 </div>
               </div>
 
