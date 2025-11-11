@@ -105,15 +105,15 @@
             </h3>
             <p>
               このアプリケーションは、Javaのオブジェクト指向プログラミングの課題として作成しました。
-              テキストエントリとToDoエントリを共通の `JournalEntry` 抽象クラスから継承して管理する設計になっています。
+              テキストエントリとToDoエントリを共通の 'JournalEntry' 抽象クラスから継承して管理する設計になっています。
             </p>
             <h3>使用技術・工夫した点</h3>
             <ul>
-              <li><strong>Java Swing (GUI):</strong> CUI版のロジックを再利用し、`JFrame`や`JButton`等でGUIを構築。</li>
-              <li><strong>Look and Feel:</strong> `UIManager` を使用し、OS標準の見た目に変更。</li>
-              <li><strong>継承:</strong> `JournalEntry` を親クラスとし、`TextEntry` と `ToDoEntry` がそれを継承。</li>
-              <li><strong>データ保存:</strong> `Serializable` インターフェースを利用し、`ObjectOutputStream` でエントリのリスト全体をシリアライズ化してファイルに保存します。</li>
-              <li><strong>`transient` の使用:</strong> `Serializable` ではない `LocalDateTime` 型を `transient` とし、`writeObject`/`readObject` をカスタム実装して文字列として保存・復元しています。</li>
+              <li><strong>Java Swing (GUI):</strong> CUI版のロジックを再利用し、'JFrame'や'JButton'等でGUIを構築。</li>
+              <li><strong>Look and Feel:</strong> 'UIManager' を使用し、OS標準の見た目に変更。</li>
+              <li><strong>継承:</strong> 'JournalEntry' を親クラスとし、'TextEntry' と 'ToDoEntry' がそれを継承。</li>
+              <li><strong>データ保存:</strong> 'Serializable' インターフェースを利用し、'ObjectOutputStream' でエントリのリスト全体をシリアライズ化してファイルに保存します。</li>
+              <li><strong>'transient' の使用:</strong> 'Serializable' ではない 'LocalDateTime' 型を 'transient' とし、'writeObject'/'readObject' をカスタム実装して文字列として保存・復元しています。</li>
             </ul>
           </div>
         </div>
