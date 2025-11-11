@@ -32,8 +32,8 @@ public class JournalAppGUI {
         displayArea = new JTextArea();
         displayArea.setEditable(false);
 
-        Font MyFont = new Font("SansSerif", Font.PLAIN, 16);
-        Font monoFont = new Font("Monospaced", Font.PLAIN, 16);
+        Font MyFont = new Font("Yu Gothic", Font.PLAIN, 16);
+        Font monoFont = new Font("Consolas", Font.PLAIN, 14);
 
         displayArea.setFont(monoFont);
 
